@@ -13,7 +13,8 @@ const Contact = () => {
     email: "",
     phone: "",
     company: "",
-    message: ""
+    message: "",
+    access_key: ""
   });
 
 const handleSubmit = async (e: React.FormEvent) => {
@@ -30,15 +31,16 @@ const handleSubmit = async (e: React.FormEvent) => {
   }
 
   try {
-    // Send the form data to YOUR new backend API
-    const response = await fetch('/api/contact', { // <--- The ONLY change needed
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData),
-    });
 
+    // In your React handleSubmit component
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        access_key: "83e553d4-6f36-4bf0-abb8-292749bccb0b",
+        ...formData
+      })
+    });
     if (response.ok) {
       // Form submission was successful
       toast({
@@ -52,7 +54,8 @@ const handleSubmit = async (e: React.FormEvent) => {
         email: "",
         phone: "",
         company: "",
-        message: ""
+        message: "",
+        access_key: ""
       });
     } else {
       // Handle server errors from your API
