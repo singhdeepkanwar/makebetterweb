@@ -1,10 +1,10 @@
 // No need for dotenv, Vercel handles environment variables
-const express = require('express');
-const cors = require('cors');
-const nodemailer = require('nodemailer');
+import express from 'express';
+import cors from 'cors';
+import nodemailer from 'nodemailer';
 
 const app = express();
-app.use(express.json());
+
 // Middleware
 app.use(cors()); // It's still good practice to include this
 app.use(express.json());
