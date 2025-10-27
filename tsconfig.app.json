@@ -26,5 +26,5 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["src", "api/server.js"]
+  "include": ["src", "api/server.cjs"]
 }
