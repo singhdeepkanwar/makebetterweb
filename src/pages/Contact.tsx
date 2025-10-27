@@ -16,37 +16,65 @@ const Contact = () => {
     message: ""
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    // Basic validation
-    if (!formData.name || !formData.email || !formData.message) {
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+
+  // Basic validation
+  if (!formData.name || !formData.email || !formData.message) {
+    toast({
+      title: "Missing Information",
+      description: "Please fill in all required fields.",
+      variant: "destructive"
+    });
+    return;
+  }
+
+  try {
+    // Send the form data to Formsubmit.co
+    const response = await fetch('https://formsubmit.co/deepharrysng@gmail.com', { // <--- 🚨 IMPORTANT: Replace with your actual email address
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json' // This is crucial for AJAX submission
+      },
+      body: JSON.stringify(formData),
+    });
+
+    if (response.ok) {
+      // Form submission was successful
       toast({
-        title: "Missing Information",
-        description: "Please fill in all required fields.",
+        title: "Message Sent!",
+        description: "Thank you for contacting us. We'll get back to you soon.",
+      });
+
+      // Reset form
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        company: "",
+        message: ""
+      });
+    } else {
+      // Handle server errors
+      const data = await response.json();
+      console.error("Formsubmit.co error response:", data);
+      toast({
+        title: "Submission Failed",
+        description: data.message || "Something went wrong. Please try again later.",
         variant: "destructive"
       });
-      return;
     }
-
-    // Here you would typically send the form data to your backend
-    console.log("Form submitted:", formData);
-    
+  } catch (error) {
+    // Handle network errors
+    console.error("Error submitting form:", error);
     toast({
-      title: "Message Sent!",
-      description: "Thank you for contacting us. We'll get back to you soon.",
+      title: "Submission Error",
+      description: "Could not send message. Please check your connection and try again.",
+      variant: "destructive"
     });
-
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      company: "",
-      message: ""
-    });
-  };
-
+  }
+};
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
@@ -245,7 +273,7 @@ const Contact = () => {
           </Card>
         </div>
       </section>
-    </div>
+    </div> 
   );
 };
 
