@@ -14,7 +14,7 @@ const Contact = () => {
     phone: "",
     company: "",
     message: "",
-    access_key: ""
+    access_key: "83e553d4-6f36-4bf0-abb8-292749bccb0b"
   });
 
 const handleSubmit = async (e: React.FormEvent) => {
@@ -36,10 +36,7 @@ const handleSubmit = async (e: React.FormEvent) => {
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        access_key: "83e553d4-6f36-4bf0-abb8-292749bccb0b",
-        ...formData
-      })
+      body: JSON.stringify({formData})
     });
     if (response.ok) {
       // Form submission was successful
@@ -55,7 +52,7 @@ const handleSubmit = async (e: React.FormEvent) => {
         phone: "",
         company: "",
         message: "",
-        access_key: ""
+        access_key: "83e553d4-6f36-4bf0-abb8-292749bccb0b"
       });
     } else {
       // Handle server errors from your API
