@@ -18,7 +18,7 @@ const Contact = () => {
 
 const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
-
+  
   // Basic validation
   if (!formData.name || !formData.email || !formData.message) {
     toast({
@@ -30,12 +30,11 @@ const handleSubmit = async (e: React.FormEvent) => {
   }
 
   try {
-    // Send the form data to Formsubmit.co
-    const response = await fetch('https://formsubmit.co/deepharrysng@gmail.com', { // <--- 🚨 IMPORTANT: Replace with your actual email address
+    // Send the form data to YOUR new backend API
+    const response = await fetch('http://localhost:4000/api/contact', { // <--- The ONLY change needed
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Accept': 'application/json' // This is crucial for AJAX submission
       },
       body: JSON.stringify(formData),
     });
@@ -56,21 +55,20 @@ const handleSubmit = async (e: React.FormEvent) => {
         message: ""
       });
     } else {
-      // Handle server errors
-      const data = await response.json();
-      console.error("Formsubmit.co error response:", data);
+      // Handle server errors from your API
+      const errorData = await response.json();
       toast({
         title: "Submission Failed",
-        description: data.message || "Something went wrong. Please try again later.",
+        description: errorData.error || "Something went wrong. Please try again later.",
         variant: "destructive"
       });
     }
   } catch (error) {
-    // Handle network errors
+    // Handle network errors (e.g., API server is down)
     console.error("Error submitting form:", error);
     toast({
       title: "Submission Error",
-      description: "Could not send message. Please check your connection and try again.",
+      description: "Could not connect to the server. Please try again later.",
       variant: "destructive"
     });
   }
