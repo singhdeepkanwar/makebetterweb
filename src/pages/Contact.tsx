@@ -31,7 +31,7 @@ const handleSubmit = async (e: React.FormEvent) => {
 
   try {
     // Send the form data to YOUR new backend API
-    const response = await fetch('http://makebetter.tech:4000/api/contact', { // <--- The ONLY change needed
+    const response = await fetch('https://www.makebetter.tech:4000/api/contact', { // <--- The ONLY change needed
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
