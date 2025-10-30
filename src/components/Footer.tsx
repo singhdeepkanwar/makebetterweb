@@ -103,7 +103,7 @@ const Footer = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
             <div>
               <p className="text-sm text-muted-foreground">
-                <span className="font-semibold text-foreground">Email:</span> contact@makebetter.tech
+                <span className="font-semibold text-foreground">Email:</span> deep@makebetter.tech
               </p>
             </div>
             <div className="md:text-right">
