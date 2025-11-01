@@ -100,7 +100,7 @@ const PrivacyPolicy = () => {
                   <li>Withdraw consent for marketing communications</li>
                 </ul>
                 <p className="text-muted-foreground leading-relaxed mt-4">
-                  To exercise these rights, please contact us at contact@makebetter.tech.
+                  To exercise these rights, please contact us at deep@makebetter.tech.
                 </p>
               </div>
 
@@ -146,7 +146,7 @@ const PrivacyPolicy = () => {
                 </p>
                 <div className="mt-4 p-4 bg-muted/50 rounded-lg">
                   <p className="text-foreground font-medium">Shree Ananta Consultancy and Solutions LLP</p>
-                  <p className="text-muted-foreground">Email: contact@makebetter.tech</p>
+                  <p className="text-muted-foreground">Email: deep@makebetter.tech</p>
                   <p className="text-muted-foreground">Website: www.makebetter.tech</p>
                 </div>
               </div>

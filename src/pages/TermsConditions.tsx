@@ -180,7 +180,7 @@ const TermsConditions = () => {
                 </p>
                 <div className="mt-4 p-4 bg-muted/50 rounded-lg">
                   <p className="text-foreground font-medium">Shree Ananta Consultancy and Solutions LLP</p>
-                  <p className="text-muted-foreground">Email: contact@makebetter.tech</p>
+                  <p className="text-muted-foreground">Email: deep@makebetter.tech</p>
                   <p className="text-muted-foreground">Website: www.makebetter.tech</p>
                 </div>
               </div>
