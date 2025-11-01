@@ -84,19 +84,19 @@ const handleSubmit = async (e: React.FormEvent) => {
     {
       icon: Mail,
       title: "Email",
-      content: "contact@makebetter.tech",
-      link: "mailto:contact@makebetter.tech"
+      content: "deep@makebetter.tech",
+      link: "mailto:deep@makebetter.tech"
     },
     {
       icon: Phone,
       title: "Phone",
-      content: "+91 (XXX) XXX-XXXX",
-      link: "tel:+91XXXXXXXXXX"
+      content: "+91 98721 80369",
+      link: "tel:++919872180369"
     },
     {
       icon: MapPin,
       title: "Office",
-      content: "Shree Ananta Consultancy and Solutions LLP",
+      content: "Kishanpura Road, Sangrur-148001, India",
       link: null
     }
   ];
@@ -257,7 +257,7 @@ const handleSubmit = async (e: React.FormEvent) => {
       </section>
 
       {/* Map Section - Placeholder */}
-      <section className="py-12 bg-gradient-subtle">
+      {/* <section className="py-12 bg-gradient-subtle">
         <div className="container mx-auto px-4">
           <Card className="shadow-medium border-border overflow-hidden max-w-4xl mx-auto">
             <div className="aspect-video bg-muted flex items-center justify-center">
@@ -270,7 +270,7 @@ const handleSubmit = async (e: React.FormEvent) => {
             </div>
           </Card>
         </div>
-      </section>
+      </section> */}
     </div> 
   );
 };
