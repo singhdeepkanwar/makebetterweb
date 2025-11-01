@@ -9,37 +9,43 @@ import { useToast } from "@/hooks/use-toast";
 const Contact = () => {
   const { toast } = useToast();
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    company: "",
-    message: "",
-    access_key: "83e553d4-6f36-4bf0-abb8-292749bccb0b"
-  });
+      name: "",
+      email: "",
+      phone: "",
+      company: "",
+      message: "",
+      _captcha: "false" // Add this to disable captcha for testing
+});
 
 const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
   
-  // Basic validation
   if (!formData.name || !formData.email || !formData.message) {
-    toast({
+
+      toast({
       title: "Missing Information",
       description: "Please fill in all required fields.",
       variant: "destructive"
-    });
-    return;
+
+  });
+
+      return;
+
   }
 
   try {
-
-    // In your React handleSubmit component
-    const response = await fetch("https://formsubmit.co/deepharrysng@gmail.com", {
+    // 1. CHANGED: Use the FormSubmit AJAX endpoint
+    const response = await fetch("https://formsubmit.co/ajax/deepharrysng@gmail.com", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({formData})
+      headers: { 
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      // 2. FIXED: Send the formData object directly
+      body: JSON.stringify(formData)
     });
+
     if (response.ok) {
-      // Form submission was successful
       toast({
         title: "Message Sent!",
         description: "Thank you for contacting us. We'll get back to you soon.",
@@ -52,14 +58,14 @@ const handleSubmit = async (e: React.FormEvent) => {
         phone: "",
         company: "",
         message: "",
-        access_key: "83e553d4-6f36-4bf0-abb8-292749bccb0b"
+        _captcha: "false"
       });
     } else {
-      // Handle server errors from your API
+      // ... Handle errors (same as before)
       const errorData = await response.json();
       toast({
         title: "Submission Failed",
-        description: errorData.error || "Something went wrong. Please try again later.",
+        description: errorData.error || "Something went wrong.",
         variant: "destructive"
       });
     }
@@ -73,7 +79,7 @@ const handleSubmit = async (e: React.FormEvent) => {
     });
   }
 };
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+ const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
