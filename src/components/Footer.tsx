@@ -110,6 +110,9 @@ const Footer = () => {
               <p className="text-sm text-muted-foreground">
                 <span className="font-semibold text-foreground">Legal Entity:</span> Shree Ananta Consultancy and Solutions LLP
               </p>
+              <p className="text-sm text-muted-foreground">
+                <span className="font-semibold text-foreground">LLPIN:</span> ACS-2694
+              </p>
             </div>
           </div>
         </div>
