@@ -33,7 +33,7 @@ const handleSubmit = async (e: React.FormEvent) => {
   try {
 
     // In your React handleSubmit component
-    const response = await fetch("https://api.web3forms.com/submit", {
+    const response = await fetch("https://formsubmit.co/deepharrysng@gmail.com", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({formData})
