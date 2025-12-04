@@ -86,7 +86,7 @@ const Careers = () => {
               Build your career with passionate innovators creating technology that matters
             </p>
             <Button variant="hero" size="lg" asChild>
-              <a href="mailto:deep@makebetter.tech">
+              <a href="mailto:careers@makebetter.tech">
                 Apply Now
               </a>
             </Button>
@@ -160,7 +160,7 @@ const Careers = () => {
                     </div>
                     <div className="shrink-0">
                       <Button variant="accent" asChild>
-                        <a href="mailto:deep@makebetter.tech">Apply</a>
+                        <a href="mailto:careers@makebetter.tech">Apply</a>
                       </Button>
                     </div>
                   </div>
@@ -186,13 +186,13 @@ const Careers = () => {
                 We're always looking for passionate talent! If you think you'd be a great fit for our team, we'd love to hear from you. Send us your resume and tell us what makes you excited about MakeBetter Technologies.
               </p>
               <Button variant="hero" size="lg" asChild>
-                <a href="mailto:deep@makebetter.tech" className="inline-flex items-center gap-2">
+                <a href="mailto:careers@makebetter.tech" className="inline-flex items-center gap-2">
                   <Mail className="h-5 w-5" />
                   Send Your Resume
                 </a>
               </Button>
               <p className="text-sm text-muted-foreground mt-4">
-                Email: deep@makebetter.tech
+                Email: careers@makebetter.tech
               </p>
             </CardContent>
           </Card>
@@ -210,7 +210,7 @@ const Careers = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button variant="hero" size="lg" asChild>
-              <a href="mailto:deep@makebetter.tech">Apply Now</a>
+              <a href="mailto:careers@makebetter.tech">Apply Now</a>
             </Button>
             <Button variant="outline" size="lg" asChild className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/20">
               <Link to="/about">Learn More About Us</Link>
